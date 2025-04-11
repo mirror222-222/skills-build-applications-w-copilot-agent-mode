@@ -68,6 +68,9 @@ MIDDLEWARE = [
 
 MIDDLEWARE.insert(1, 'corsheaders.middleware.CorsMiddleware')
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+CORS_ALLOW_HEADERS = ['*']
+ALLOWED_HOSTS = ['*']
 
 ROOT_URLCONF = "octofit_tracker.urls"
 

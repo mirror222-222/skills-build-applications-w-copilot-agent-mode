@@ -1,5 +1,6 @@
 from djongo import models
 
+# Models for users, teams, activity, leaderboard, and workouts
 class User(models.Model):
     _id = models.ObjectIdField()
     username = models.CharField(max_length=100)
