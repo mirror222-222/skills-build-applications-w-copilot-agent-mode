@@ -39,11 +39,22 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 ]
 
-# Add 'rest_framework' to installed apps for API development
-INSTALLED_APPS += [
-    "rest_framework",
-]
+# Add MongoDB configuration and installed apps
+DATABASES = {
+    'default': {
+        'ENGINE': 'djongo',
+        'NAME': 'octofit_db',
+        'HOST': 'localhost',
+        'PORT': 27017,
+    }
+}
 
+INSTALLED_APPS += [
+    'rest_framework',
+    'djongo',
+    'corsheaders',
+    'octofit_tracker',
+]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -54,6 +65,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+MIDDLEWARE.insert(1, 'corsheaders.middleware.CorsMiddleware')
+CORS_ALLOW_ALL_ORIGINS = True
 
 ROOT_URLCONF = "octofit_tracker.urls"
 
