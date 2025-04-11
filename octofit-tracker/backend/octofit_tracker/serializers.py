@@ -1,8 +1,7 @@
 from rest_framework import serializers
-from .models import User, Team, Activity, Leaderboard, Workout
+from octofit_tracker.models import User, Team, Activity, Leaderboard, Workout
 from bson import ObjectId
 
-# Serializers for users, teams, activity, leaderboard, and workouts
 class ObjectIdField(serializers.Field):
     def to_representation(self, value):
         return str(value)

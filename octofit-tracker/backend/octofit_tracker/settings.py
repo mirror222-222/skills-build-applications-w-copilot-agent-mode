@@ -57,6 +57,10 @@ INSTALLED_APPS += [
     'octofit_tracker',
 ]
 
+# Ensure INSTALLED_APPS has unique entries
+INSTALLED_APPS = list(dict.fromkeys(INSTALLED_APPS))
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -67,6 +71,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+# Enable CORS and allow all hosts
 MIDDLEWARE.insert(1, 'corsheaders.middleware.CorsMiddleware')
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
